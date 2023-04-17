@@ -1,16 +1,23 @@
 import { site } from "@/config/site"
+import Link from "next/link"
 
 export function Header() {
     return (
-        <div className="flex bg-stone-200 w-full items-center justify-center">
-            <div className="grid gap-1 text-center">
-                <h1 className="text-5xl font-extrabold tracking-wide text-slate-900">
-                    {site.name}
-                </h1>
-                <p className="text-base text-slate-700">
-                    {site.description}
-                </p>
+        <header className="sticky top-0 z-40 w-full border-b border-b-slate-200 bg-white">
+            <div className="container flex h-16 items-center">
+                {/* Main Nav */}
+                <div className="hidden md:flex">
+                    <Link href="/" className="ml-44 mr-6 flex items-center space-x-2">
+                        <span className="hidden font-extrabold text-lg sm:inline-block">
+                            {site.name}
+                        </span>
+                    </Link>
+                    <nav className="flex items-center space-x-6 text-sm font-medium">
+                        <Link href={site.links.github}>GitHub</Link>
+                    </nav>
+                </div>
+
             </div>
-        </div>
+        </header>
     )
 }
